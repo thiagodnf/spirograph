@@ -15,7 +15,7 @@ Access the app [here](https://thiagodnf.github.io/spirograph).
 ## Screenshots
 
 <kbd>
-<!-- <img class="screenshot" src="https://user-images.githubusercontent.com/114015/201479888-65c2bc77-4d73-41e5-ba40-ed7cbaf26d94.jpg"/> -->
+<img class="screenshot" src="https://user-images.githubusercontent.com/114015/208959383-c86e0950-2f7d-4e69-9ec2-e3d59ad388ff.gif"/>
 </kbd>
 
 ## For Developers
