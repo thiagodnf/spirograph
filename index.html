@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spirograph</title>
+    <meta name="author" content="Thiago Ferreira">
+    <meta name="description" content="Spirograph is a javascript-based geometric tool that produces mathematical roulette curves">
+    <meta name="keywords" content="spirograph, javascript, geometric">
+    <meta name="robots" content="index, follow">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid">
+
+            <h1 class="text-center my-3 text-light">Spirograph</h1>
+
+            <div class="row">
+                <div class="col-12 col-sm-7 col-md-8 col-lg-9 col-xl-10 main-panel">
+                    <canvas id="canvas" width="800" height="600">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2 side-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-toggle="tab" data-bs-toggle="tab" data-bs-target="#info">Settings</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-toggle="tab" data-bs-toggle="tab" data-bs-target="#display">Display</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body overflow-auto sidepanel">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="info">
+                                    <div class="row mb-3">
+                                        <label for="speed" class="col-form-label col-sm-6 ">Speed</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="form-control form-control-sm" pattern="\d*" id="speed" step="1" min="1" max="200" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="circles" class="col-form-label col-sm-6 ">Circles</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="form-control form-control-sm" pattern="\d*" id="circles" step="1" min="2" max="400" value="2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="display">
+                                    <div class="row mb-3">
+                                        <label for="theme" class="col-form-label col-sm-6 ">Theme</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select form-select-sm" id="theme">
+                                                <option selected value="interpolateRdYlBu">RdYlBu</option>
+                                                <option value="interpolateViridis">Viridis</option>
+                                                <option value="interpolateTurbo">Turbo</option>
+                                                <option value="interpolateInferno">Inferno</option>
+                                                <option value="interpolateMagma">Magma</option>
+                                                <option value="interpolatePlasma">Plasma</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="distance" class="col-form-label col-sm-6 ">Distance</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="form-control form-control-sm" pattern="\d*" id="distance" step="1" min="0" max="400" value="50">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="radius" class="col-form-label col-sm-6 ">Radius</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="form-control form-control-sm" pattern="\d*" id="radius" step="1" min="0" max="400" value="100">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="showOrbits" class="col-form-label col-6 ">Orbits</label>
+                                        <div class="col-6 d-flex align-items-center justify-content-end">
+                                            <div class="form-check form-switch d-flex align-items-center ">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="showOrbits" checked="checked">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="showCentroids" class="col-form-label col-6 ">Centroids</label>
+                                        <div class="col-6 d-flex align-items-center justify-content-end">
+                                            <div class="form-check form-switch d-flex align-items-center ">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="showCentroids">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="https://d3js.org/d3-color.v1.min.js"></script>
+        <script type="text/javascript" src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+        <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+        <script type="module" src="js/script.js"></script>
+
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+
+</html>
