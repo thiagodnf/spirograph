@@ -46,9 +46,15 @@ export default class DarkMode {
     static activateTheme(theme) {
 
         if (theme === 'auto') {
-            document.documentElement.setAttribute('data-bs-theme', DarkMode.getOSTheme())
+            theme = DarkMode.getOSTheme();
+        }
+
+        document.documentElement.setAttribute('data-bs-theme', theme)
+
+        if (theme === 'dark') {
+            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212529");
         } else {
-            document.documentElement.setAttribute('data-bs-theme', theme)
+            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fffffe");
         }
     }
 
