@@ -1,64 +1,7 @@
-body {
-    color: #8a8d93;
-    background-color: black;
-    font-size: 14px;
-}
-
 audio{
     width: 100%;
 }
-
+/*
 canvas {
     border: 1px solid #2D3035;
-}
-
-.card {
-    background-color: #2D3035;
-}
-
-.card-header {
-    background-color: #22252A;
-}
-
-.card-header-tabs button {
-    color: #8a8d93;
-}
-
-.card-header-tabs button:hover {
-    color: white;
-    border-color: transparent !important;
-}
-
-.card-header-tabs .nav-link.active {
-    color: white;
-    background-color: #2D3035;
-    border-color: #2D3035;
-}
-
-.form-control {
-    color: #8a8d93;
-    background-color: #2d3035;
-    background-clip: padding-box;
-    border: 1px solid #40444b;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.form-control:focus {
-    color: #8a8d93;
-    background-color: #2d3035;
-    border-color: #db6574;
-    box-shadow: none;
-}
-
-.form-select {
-    color: #8a8d93;
-    background-color: #2d3035;
-    border: 1px solid #40444b;
-}
-
-.form-select:focus {
-    border-color: #db6574;
-    box-shadow: none;
-}
+} */

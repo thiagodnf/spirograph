@@ -1,5 +1,6 @@
 import Spirograph from "./core/Spirograph.js";
 import Canvas from "./utils/Canvas.js";
+import DarkMode from "./utils/DarkMode.js";
 
 let canvas = new Canvas("canvas");
 let spirograph = new Spirograph();
@@ -26,6 +27,8 @@ $(function () {
     requestAnimationFrame(animate);
 
     $(window).resize(resizeWindow).trigger("resize");
+
+    DarkMode.init();
 
     $("#circles").change(function () {
         spirograph.create(Number(this.value));
@@ -54,6 +57,10 @@ $(function () {
     $("#showCentroids").change(function () {
         spirograph.showCentroids = this.checked;
     }).trigger("change");
+
+    $("#color-theme").change(function () {
+        DarkMode.setTheme(this.value)
+    }).val(DarkMode.getPreferredTheme())
 });
 
 
