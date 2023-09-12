@@ -5,7 +5,7 @@ export default class DarkMode {
         const storedTheme = DarkMode.getStoredTheme()
 
         if (!storedTheme) {
-            DarkMode.setStoredTheme("auto");
+            DarkMode.setStoredTheme("dark");
         }
 
         DarkMode.activateTheme(DarkMode.getPreferredTheme());

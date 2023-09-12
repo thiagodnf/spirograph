@@ -12,7 +12,7 @@ function resizeWindow() {
     canvas.setWidth($mainPanel.width());
     canvas.setHeight($(window).height() - $mainPanel.offset().top - 32);
 
-    $(".side-panel .card").height(canvas.getHeight());
+    $(".side-panel .card").height(canvas.getHeight()+12);
 }
 
 $(function () {
